@@ -1,0 +1,12 @@
+apiVersion: kudo.dev/v1beta1
+kudoVersion: 0.15.0
+name: fluentd-operator
+operatorVersion: 0.1.0
+appVersion: 0.0.0
+kubernetesVersion: 1.13.0
+maintainers:
+  - name: Pieter vander Merwe
+    email: pieterv@icloud.com
+url: https://github.com/pieterv-icloud-com/fluentd-operator
+plans: {}
+tasks: []

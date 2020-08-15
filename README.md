@@ -1,2 +1,3 @@
 # fluentd-operator
-Fluentd operator using judo
+
+fluentd operator using [kudo](https://github.com/kudobuilder/kudo).
