@@ -1,0 +1,9 @@
+apiVersion: kudo.dev/v1beta1
+kind: Instance
+metadata:
+  labels:
+    kudo.dev/operator: fluentd-operator
+  name: k8-magic
+spec:
+  operatorVersion:
+    name: fluentd-operator-0.1.0
