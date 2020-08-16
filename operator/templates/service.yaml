@@ -9,6 +9,6 @@ spec:
     protocol: TCP
     targetPort: 24224
   selector:
-    app.kubernetes.io/name: {{ .Name }}
+    kudo.dev/instance: {{ .Name }}
   sessionAffinity: None
   type: ClusterIP

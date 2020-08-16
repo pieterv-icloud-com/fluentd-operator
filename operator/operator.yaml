@@ -17,6 +17,7 @@ tasks:
         - serviceaccount.yaml
         - role.yaml
         - service.yaml
+        - secret.yaml
 plans:
   deploy:
     strategy: serial
