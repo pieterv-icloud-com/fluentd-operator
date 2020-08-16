@@ -16,6 +16,7 @@ tasks:
         - rolebinding.yaml
         - serviceaccount.yaml
         - role.yaml
+        - service.yaml
 plans:
   deploy:
     strategy: serial
