@@ -13,9 +13,9 @@ tasks:
     kind: Apply
     spec:
       resources:
-        - role.yaml
         - rolebinding.yaml
-        - serviceaccount
+        - serviceaccount.yaml
+        - role.yaml
 plans:
   deploy:
     strategy: serial
