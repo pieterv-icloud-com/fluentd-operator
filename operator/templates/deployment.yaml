@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fo-{{ .Name }}
+spec:
+  replicas:  {{ .Params.replicas }}
+  selector:
+    matchLabels:
+        kudo.dev/instance: {{ .Name }}
+  template:
+    spec:
+      containers:
+      - args:
+        - fluentd
+        - --log-rotate-age
+        - "10"
+        - --log-rotate-size
+        - "10485760"
+        env:
+        - name: BUFFER_PATH
+          value: /buffers
+        image: {{ .Params.repository }}:v{{ .AppVersion }}
+        imagePullPolicy: IfNotPresent
+        name: fluentd
+        ports:
+        - containerPort: 24244
+          name: forward
+          protocol: TCP
+        volumeMounts:
+        - mountPath: /fluentd/etc/
+          name: config
+      - args:
+        - -volume-dir=/fluentd/etc
+        - -webhook-url=http://127.0.0.1:24444/api/config.reload
+        image: jimmidyson/configmap-reload:v0.2.2
+        imagePullPolicy: IfNotPresent
+        name: config-reloader
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /fluentd/etc
+          name: config
+      serviceAccountName: fo-{{ .Name }}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: config
+        secret:          
+          secretName: fo-{{ .Name }}-config

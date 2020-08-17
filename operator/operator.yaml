@@ -5,7 +5,7 @@ operatorVersion: 0.1.0
 appVersion: 1.9.1-1.0
 kubernetesVersion: 1.13.0
 maintainers:
-  - name: Pieter vander Merwe
+  - name: Pieter van der Merwe
     email: pieterv@icloud.com
 url: https://github.com/pieterv-icloud-com/fluentd-operator
 tasks:
@@ -13,11 +13,12 @@ tasks:
     kind: Apply
     spec:
       resources:
-        - rolebinding.yaml
         - serviceaccount.yaml
         - role.yaml
+        - rolebinding.yaml
         - service.yaml
         - secret.yaml
+        - deployment.yaml
 plans:
   deploy:
     strategy: serial

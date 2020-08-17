@@ -7,3 +7,5 @@ metadata:
 spec:
   operatorVersion:
     name: fluentd-operator-0.1.0
+  parameters:
+    replicas: "5"
