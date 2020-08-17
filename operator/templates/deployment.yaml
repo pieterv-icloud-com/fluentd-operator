@@ -19,7 +19,7 @@ spec:
         env:
         - name: BUFFER_PATH
           value: /buffers
-        image: {{ .Params.fluentd-repository }}:v{{ .AppVersion }}
+        image: {{ .Params.fluentdRepository }}:v{{ .AppVersion }}
         imagePullPolicy: IfNotPresent
         name: fluentd
         ports:
