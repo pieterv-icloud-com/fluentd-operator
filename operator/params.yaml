@@ -4,5 +4,11 @@ parameters:
     description: Number of replicas that should be run as part of the deployment
     default: 3
   - name: fluentdRepository
-    description: fluentd docker image repository
+    description: fluentd container image repository
     default: fluentd
+  - name: configmapRepository
+    description: configmap-reload container image repository
+    default: jimmidyson/configmap-reload
+  - name: configmapTag
+    description: configmap-reload container image tag
+    default: v0.2.2
